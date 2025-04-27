@@ -12,7 +12,7 @@ export default function About() {
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>Background</h2>
         <p>
-          Southern cooking is more than just recipes—it reflects the people, history, and culture of the American South. For generations, community church cookbooks and handwritten family recipe cards have preserved dishes like biscuits, fried chicken, and jambalaya. These recipes carry not only ingredients and instructions but also small cultural details—for example, using buttermilk in biscuits as a nod to Southern dairy traditions, or adding cayenne pepper to honor Cajun influences in Louisiana <sup>[1]</sup>. This project investigates whether a machine learning model can capture these nuances when generating "new" Southern recipes.
+          Southern cooking is more than just recipes—it reflects the people, history, and culture of the American South. For generations, community church cookbooks and handwritten family recipe cards have preserved dishes like biscuits, fried chicken, and jambalaya. These recipes carry not only ingredients and instructions but also small cultural details—for example, using buttermilk in biscuits as a nod to Southern dairy traditions, or adding cayenne pepper to honor Cajun influences in Louisiana <sup>[1]</sup>. This project investigates whether a machine learning model can capture these nuances when generating new Southern recipes.
         </p>
       </section>
 
