@@ -1,0 +1,114 @@
+.authorSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(92, 64, 51, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.15);
+  margin: 2rem 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.authorSection:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(92, 64, 51, 0.15);
+}
+
+.profilePicture {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #8B4513;
+  box-shadow: 0 4px 12px rgba(92, 64, 51, 0.2);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.profilePicture:hover {
+  transform: scale(1.05);
+}
+
+.authorName {
+  font-size: 2rem;
+  color: #2c1810;
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.authorTitle {
+  font-size: 1.2rem;
+  color: #5c4033;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.authorBio {
+  text-align: center;
+  line-height: 1.8;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.socialLink {
+  color: #8B4513;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #5c4033;
+  transform: translateY(-2px);
+}
+
+.credentials {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(139, 69, 19, 0.05);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #5c4033;
+}
+
+@media (max-width: 768px) {
+  .authorSection {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .profilePicture {
+    width: 150px;
+    height: 150px;
+  }
+
+  .authorName {
+    font-size: 1.75rem;
+  }
+
+  .authorTitle {
+    font-size: 1.1rem;
+  }
+
+  .authorBio {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .socialLinks {
+    gap: 1rem;
+  }
+} 

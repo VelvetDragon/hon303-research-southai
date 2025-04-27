@@ -1,0 +1,269 @@
+.recipeContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(92, 64, 51, 0.1);
+}
+
+.recipeHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.recipeTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.5rem;
+  color: #8B4513;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.decorativeLine {
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #8B4513, transparent);
+  margin: 1.5rem auto;
+  position: relative;
+}
+
+.decorativeLine::before,
+.decorativeLine::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8B4513;
+  font-size: 1.2rem;
+}
+
+.decorativeLine::before {
+  left: 20px;
+}
+
+.decorativeLine::after {
+  right: 20px;
+}
+
+.recipeImageContainer {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: scaleIn 1s ease-out;
+}
+
+.recipeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.recipeImage:hover {
+  transform: scale(1.05);
+}
+
+.recipeSection {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(255, 248, 240, 0.7);
+  border-radius: 15px;
+  border: 1px solid rgba(139, 69, 19, 0.1);
+  animation: slideUp 0.8s ease-out;
+}
+
+.sectionTitle {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  color: #5c4033;
+  margin: 2rem 0 1rem;
+  border-bottom: 2px solid rgba(139, 69, 19, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.ingredientsList {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.ingredientsList li {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.ingredientsList li::before {
+  content: "•";
+  color: #8B4513;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.stepsList {
+  list-style-type: none;
+  counter-reset: step-counter;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.stepsList li {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 1rem 0;
+  padding-left: 2.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.stepsList li::before {
+  content: counter(step-counter);
+  counter-increment: step-counter;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: #8B4513;
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: rgba(139, 69, 19, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.recipeNotes {
+  font-style: italic;
+  color: #666;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-left: 3px solid #8B4513;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.subSection {
+  margin: 2rem 0;
+}
+
+.subSectionTitle {
+  font-family: 'Georgia', serif;
+  font-size: 1.4rem;
+  color: #8B4513;
+  margin: 1.5rem 0 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subSectionTitle::before,
+.subSectionTitle::after {
+  content: "";
+  height: 2px;
+  background-color: rgba(139, 69, 19, 0.2);
+  flex: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recipeContainer {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .recipeTitle {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .subSectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .ingredientsList li,
+  .stepsList li {
+    font-size: 1rem;
+  }
+
+  .recipeImageContainer {
+    height: 300px;
+  }
+
+  .recipeSection {
+    padding: 1.5rem;
+  }
+
+  .ingredientsList {
+    grid-template-columns: 1fr;
+  }
+
+  .stepItem {
+    padding: 1rem 1rem 1rem 3rem;
+  }
+} 

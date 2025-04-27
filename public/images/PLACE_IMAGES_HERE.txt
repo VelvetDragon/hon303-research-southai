@@ -1,0 +1,30 @@
+SOUTHERN FOOD IMAGES PLACEHOLDER
+
+Please add the following images to this folder for the slideshow to work properly:
+
+1. biscuits-gravy.jpg - Southern biscuits with gravy
+2. cornbread.jpg - A classic southern cornbread
+3. peach-cobbler.jpg - Homestyle peach cobbler 
+4. gumbo.jpg - Creamy gumbo with shrimp and sausage
+5. fried-chicken.jpg - Crispy fried chicken
+
+These should be high-quality, landscape orientation images (16:9 or 4:3 ratio recommended) featuring traditional Southern cuisine.
+
+Additionally, you'll need this design element:
+- paper-texture.jpg - A subtle light paper or parchment texture for the background
+  (This should be a high-resolution light cream/beige paper texture that will be used as the site background)
+
+Image recommendations:
+- Use professional food photography with natural lighting
+- Images should be at least 1200px wide for best quality
+- JPG format is recommended for photos
+- For paper-texture.jpg, choose a subtle texture that doesn't interfere with readability
+
+Additionally, you may want to add these design elements:
+- southern-pattern.png - A subtle pattern that reflects Southern motifs
+
+Image recommendations:
+- Use professional food photography with natural lighting
+- Images should be at least 1200px wide for best quality
+- JPG format is recommended for photos
+- PNG format with transparency is recommended for patterns 

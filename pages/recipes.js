@@ -1,62 +1,99 @@
 // pages/recipes.js
 import { useState } from 'react'
+import styles from '../styles/Recipes.module.css'
 
-export default function RecipeFinder() {
+export default function Recipes() {
   const [query, setQuery] = useState('')
-  const [recipes, setRecipes] = useState(null)
+  const [results, setResults] = useState([])
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  async function handleSubmit(e) {
+  async function handleSearch(e) {
     e.preventDefault()
-    setError('')
-    setRecipes(null)
+    const q = query.trim()
+    if (!q) return
 
-    // Build the full URL using our env var
-    const base = process.env.NEXT_PUBLIC_API_URL
-    const url  = `${base}/api/recipe?q=${encodeURIComponent(query.trim())}`
+    setLoading(true)
+    setError('')
+    setResults([])
 
     try {
-      const res = await fetch(url)
-      if (!res.ok) throw new Error(`Status ${res.status}`)
-      const payload = await res.json()
-      // Depending on your backend shape:
-      setRecipes(payload.recipes || [payload.recipe])
+      const res = await fetch(
+        `https://hon303-southern-ai-recipe.onrender.com/api/recipe?q=${encodeURIComponent(q)}`,
+        { mode: 'cors' }
+      )
+      if (!res.ok) throw new Error(`Server returned ${res.status}`)
+
+      const data = await res.json()
+      // normalize to an array
+      let list = data.recipes ?? (data.recipe ? [data.recipe] : [])
+      if (!list.length) {
+        setError('No recipes found.')
+      } else {
+        // bring exact-title matches to front
+        const normalizedQ = q.toLowerCase()
+        list.sort((a, b) => {
+          const aExact = a.title.trim().toLowerCase() === normalizedQ
+          const bExact = b.title.trim().toLowerCase() === normalizedQ
+          if (aExact && !bExact) return -1
+          if (!aExact && bExact) return 1
+          return 0
+        })
+        setResults(list)
+      }
     } catch (err) {
       console.error(err)
-      setError('Unable to fetch recipe. Please try again.')
+      setError('Failed to fetch recipes. Please try again.')
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
-    <div>
-      <h1>Recipe Finder</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.recipesContainer}>
+      <h1 className={styles.pageTitle}>Recipe Finder</h1>
+      <form onSubmit={handleSearch} className={styles.searchForm}>
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
-          placeholder="Enter dish name or ingredients"
-          required
+          placeholder="Enter dish name or ingredients…"
+          className={styles.searchInput}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className={styles.searchButton} disabled={loading}>
+          {loading
+            ? <span className={styles.searchingSpinner} />
+            : 'Search'}
+        </button>
       </form>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
 
-      {recipes && (
-        <div>
-          <h2>Results for “{query}”</h2>
-          {recipes.map((r, i) => (
-            <article key={i} style={{ margin: '2rem 0' }}>
-              <h3>{r.title}</h3>
-              <h4>Ingredients:</h4>
-              <ul>{r.ingredients.map((ing, j) => <li key={j}>{ing}</li>)}</ul>
-              <h4>Steps:</h4>
-              <ol>{r.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
-            </article>
-          ))}
-        </div>
-      )}
+      <div className={styles.recipeGrid}>
+        {results.map((r, i) => (
+          <div
+            key={i}
+            className={styles.recipeCard}
+            style={{ animationDelay: `${i * 0.1}s` }}
+          >
+            <h2 className={styles.recipeTitle}>{r.title}</h2>
+
+            <h3 className={styles.subheading}>Ingredients</h3>
+            <ul className={styles.list}>
+              {r.ingredients.map((ing, j) => (
+                <li key={j}>{ing}</li>
+              ))}
+            </ul>
+
+            <h3 className={styles.subheading}>Steps</h3>
+            <ol className={styles.list}>
+              {r.steps.map((step, k) => (
+                <li key={k}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

@@ -1,0 +1,94 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: Arial, sans-serif;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 16px;
+      font-style: italic;
+    }
+    .box {
+      fill: white;
+      stroke-width: 2px;
+      rx: 8px;
+      ry: 8px;
+    }
+    .process-box {
+      stroke: #8b5a2b;
+      fill: #fff8ec;
+    }
+    .data-box {
+      stroke: #2b5a8b;
+      fill: #ecf6ff;
+    }
+    .arrow {
+      stroke: #555;
+      stroke-width: 2px;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+    .box-title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .box-text {
+      font-size: 12px;
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Southern Recipe AI Fine-Tuning Process</text>
+  <text x="400" y="55" text-anchor="middle" class="subtitle">From Historical Cookbooks to AI-Generated Recipes</text>
+  
+  <!-- Data Collection -->
+  <rect x="50" y="100" width="150" height="100" class="box data-box" />
+  <text x="125" y="125" text-anchor="middle" class="box-title">Data Collection</text>
+  <text x="125" y="145" text-anchor="middle" class="box-text">- 500+ Historical Recipes</text>
+  <text x="125" y="165" text-anchor="middle" class="box-text">- 100 Contemporary</text>
+  <text x="125" y="185" text-anchor="middle" class="box-text">- Community Cookbooks</text>
+  
+  <!-- Data Preprocessing -->
+  <rect x="250" y="100" width="150" height="100" class="box process-box" />
+  <text x="325" y="125" text-anchor="middle" class="box-title">Preprocessing</text>
+  <text x="325" y="145" text-anchor="middle" class="box-text">- OCR Correction</text>
+  <text x="325" y="165" text-anchor="middle" class="box-text">- Structure Normalization</text>
+  <text x="325" y="185" text-anchor="middle" class="box-text">- Metadata Extraction</text>
+  
+  <!-- Model Fine-tuning -->
+  <rect x="450" y="100" width="150" height="100" class="box process-box" />
+  <text x="525" y="125" text-anchor="middle" class="box-title">Hugging Face Fine-tuning</text>
+  <text x="525" y="145" text-anchor="middle" class="box-text">- GPT-2 Large Base</text>
+  <text x="525" y="165" text-anchor="middle" class="box-text">- Custom Tokens</text>
+  <text x="525" y="185" text-anchor="middle" class="box-text">- 5 Training Epochs</text>
+  
+  <!-- Recipe Generation -->
+  <rect x="650" y="100" width="150" height="100" class="box process-box" />
+  <text x="725" y="125" text-anchor="middle" class="box-title">Recipe Generation</text>
+  <text x="725" y="145" text-anchor="middle" class="box-text">- Structured Output</text>
+  <text x="725" y="165" text-anchor="middle" class="box-text">- Regional Variations</text>
+  <text x="725" y="185" text-anchor="middle" class="box-text">- Cultural Markers</text>
+  
+  <!-- Evaluation -->
+  <rect x="250" y="250" width="350" height="100" class="box data-box" />
+  <text x="425" y="275" text-anchor="middle" class="box-title">Multi-faceted Evaluation Framework</text>
+  <text x="425" y="300" text-anchor="middle" class="box-text">- Technical Accuracy - Ingredient Analysis - Cultural Context</text>
+  <text x="425" y="320" text-anchor="middle" class="box-text">- Expert Assessment - Test Kitchen Validation</text>
+  <text x="425" y="340" text-anchor="middle" class="box-text">- Perplexity Score: 18.3 - ROUGE-L Score: 0.42</text>
+  
+  <!-- Arrows -->
+  <path d="M200 150 H250" class="arrow" />
+  <path d="M400 150 H450" class="arrow" />
+  <path d="M600 150 H650" class="arrow" />
+  <path d="M725 200 V230 H600" class="arrow" />
+  <path d="M125 200 V300 H250" class="arrow" />
+</svg> 
