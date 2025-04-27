@@ -1,12 +1,10 @@
-// pages/index.js
 export default function Home() {
   return (
-    <div>
+    <section>
       <h1>AI-Generated Southern Recipes</h1>
       <p>
-        Exploring whether machine learning can capture the rich culinary traditions
-        of the American South by generating authentic‐looking recipes.
+        Can a machine truly learn the soul of Southern cooking? This study fine-tunes an NLP model on community cookbooks, then compares AI-generated biscuits, fried chicken, and catfish recipes against their storied, human-authored counterparts.
       </p>
-    </div>
-  );
+    </section>
+  )
 }

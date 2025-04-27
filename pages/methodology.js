@@ -1,15 +1,13 @@
-// pages/methodology.js
 export default function Methodology() {
     return (
-      <div>
+      <section>
         <h1>Methodology</h1>
         <ul>
-          <li>Gather OCR data from Mississippi community cookbooks.</li>
-          <li>Fine-tune GPT-style model (GPT-Neo) on these texts.</li>
-          <li>Generate recipes by querying with dish names/ingredients.</li>
-          <li>Compare AI outputs to human‐authored recipes.</li>
+          <li>Data Collection: OCR’d Mississippi community cookbooks (McCain Library)</li>
+          <li>Modeling: Fine-tuned GPT-Neo on cleaned corpus + on-the-fly OpenAI inference</li>
+          <li>Evaluation: Ingredient overlap metrics & expert panel reviews on key dishes</li>
         </ul>
-      </div>
-    );
+      </section>
+    )
   }
   

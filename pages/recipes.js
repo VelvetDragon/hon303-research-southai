@@ -1,71 +1,62 @@
+// pages/recipes.js
 import { useState } from 'react'
 
-export default function Recipes() {
+export default function RecipeFinder() {
   const [query, setQuery] = useState('')
-  const [results, setResults] = useState([])      // now always an array
-  const [loading, setLoading] = useState(false)
+  const [recipes, setRecipes] = useState(null)
+  const [error, setError] = useState('')
 
-  const handleSearch = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault()
-    if (!query.trim()) return
-    setLoading(true)
+    setError('')
+    setRecipes(null)
 
-    // 1️⃣ Fetch
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/recipe?q=${encodeURIComponent(query)}`
-    )
-    const data = await res.json()
+    // Build the full URL using our env var
+    const base = process.env.NEXT_PUBLIC_API_URL
+    const url  = `${base}/api/recipe?q=${encodeURIComponent(query.trim())}`
 
-    // 2️⃣ Normalize to an array
-    let hits = []
-    if (data.recipe) hits = [data.recipe]
-    else if (Array.isArray(data.recipes)) hits = data.recipes
-
-    // 3️⃣ Sort: exact‐title matches first
-    const q = query.trim().toLowerCase()
-    const exact = hits.filter(r => r.title.trim().toLowerCase() === q)
-    const fuzzy = hits.filter(r => r.title.trim().toLowerCase() !== q)
-    const sorted = [...exact, ...fuzzy]
-
-    setResults(sorted)
-    setLoading(false)
+    try {
+      const res = await fetch(url)
+      if (!res.ok) throw new Error(`Status ${res.status}`)
+      const payload = await res.json()
+      // Depending on your backend shape:
+      setRecipes(payload.recipes || [payload.recipe])
+    } catch (err) {
+      console.error(err)
+      setError('Unable to fetch recipe. Please try again.')
+    }
   }
 
   return (
-    <div style={{ padding: '2rem', maxWidth: 600, margin: 'auto' }}>
+    <div>
       <h1>Recipe Finder</h1>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
-          placeholder="e.g. jambalaya, fried chicken…"
-          style={{ width: '100%', padding: '.5rem', marginBottom: '1rem' }}
+          placeholder="Enter dish name or ingredients"
+          required
         />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Searching…' : 'Search'}
-        </button>
+        <button type="submit">Search</button>
       </form>
 
-      {results.length > 0 && (
-        <div style={{ marginTop: '2rem' }}>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      {recipes && (
+        <div>
           <h2>Results for “{query}”</h2>
-          {results.map((r, i) => (
-            <div key={i} style={{ marginBottom: '2rem' }}>
+          {recipes.map((r, i) => (
+            <article key={i} style={{ margin: '2rem 0' }}>
               <h3>{r.title}</h3>
-              <strong>Ingredients:</strong>
-              <ul>
-                {r.ingredients.map((ing,j) => <li key={j}>{ing}</li>)}
-              </ul>
-              <strong>Steps:</strong>
-              <ol>
-                {r.steps.map((step,k) => <li key={k}>{step}</li>)}
-              </ol>
-            </div>
+              <h4>Ingredients:</h4>
+              <ul>{r.ingredients.map((ing, j) => <li key={j}>{ing}</li>)}</ul>
+              <h4>Steps:</h4>
+              <ol>{r.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
+            </article>
           ))}
         </div>
       )}
-      {results.length === 0 && !loading && <p>No recipes found.</p>}
     </div>
   )
 }
