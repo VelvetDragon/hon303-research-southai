@@ -59,8 +59,7 @@ export default function About() {
           <div className={styles.contentSpacing}>
             <h4>Quality Assessment</h4>
             <p>
-              Use quantitative metrics (ingredient overlap, step‑count analysis) and qualitative 
-              expert review to assess how closely AI recipes mirror traditional Southern cooking 
+              Use quantitative metrics (ingredient overlap, step‑count analysis) to assess how closely AI recipes mirror traditional Southern cooking 
               methods and flavors.
             </p>
           </div>
