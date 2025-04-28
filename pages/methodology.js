@@ -302,7 +302,7 @@ def generate_recipe():
           </div>
 
           <div className={styles.cookbookEntry}>
-            <h3>What's Cookin' in Pascagoula</h3>
+            <h3>What&apso;s Cookin&apos; in Pascagoula</h3>
             <div className={styles.cookbookImage}>
               <Image
                 src="/images/cookbook/whatscooking.png"
