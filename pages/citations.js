@@ -6,7 +6,7 @@ export default function Citations() {
     <div className={styles.contentContainer}>
       <h1 className={styles.pageTitle}>Citations & References</h1>
       
-      <div className={styles.sectionDivider}></div>
+      <div className={styles.sectionDivider}> Coming Soon </div>
       
       <section className={styles.contentSection}>
         

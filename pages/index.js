@@ -4,8 +4,10 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <section className={styles.homepageContainer}>
-      <div className={styles.heroSection}>
+    <div className={styles.homepageContainer}>
+      <SouthernSlideshow isBackgroundMode={true} />
+
+      <section className={styles.heroSection}>
         <h1 className={styles.title}>AI-Generated Southern Recipes</h1>
         <div className={styles.divider}></div>
 
@@ -20,9 +22,7 @@ export default function Home() {
         <Link href="/methodology" className={styles.exploreButton}>
           Start Exploring
         </Link>
-      </div>
-      
-      <SouthernSlideshow />
-    </section>
+      </section>
+    </div>
   );
 }

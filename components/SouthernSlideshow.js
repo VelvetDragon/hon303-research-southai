@@ -27,10 +27,25 @@ const images = [
     src: '/images/fried-chicken.jpg',
     alt: 'Fried chicken',
     caption: 'Crispy fried chicken with a side of mashed potatoes'
+  },
+  {
+    src: '/images/shrimp-grits.jpg',
+    alt: 'Fried chicken',
+    caption: 'Crispy fried chicken with a side of mashed potatoes'
+  },
+  {
+    src: '/images/pecan_pie.jpg',
+    alt: 'Fried chicken',
+    caption: 'Crispy fried chicken with a side of mashed potatoes'
+  },
+  {
+    src: '/images/collard_greens.jpg',
+    alt: 'Fried chicken',
+    caption: 'Crispy fried chicken with a side of mashed potatoes'
   }
 ];
 
-export default function SouthernSlideshow() {
+export default function SouthernSlideshow({ isBackgroundMode = false }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const slideshowRef = useRef(null);
@@ -43,30 +58,23 @@ export default function SouthernSlideshow() {
   
   // Handle automatic slideshow advancement
   useEffect(() => {
-    if (isPaused || !isInitialized) return;
+    // Only pause based on mouse interaction or if not initialized
+    if (isPaused || !isInitialized) return; 
     
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
+    }, 2500); // Keep faster interval
     
     return () => clearInterval(interval);
-  }, [isPaused, isInitialized]);
+  // Remove isBackgroundMode from dependency array if it doesn't affect interval logic
+  }, [isPaused, isInitialized]); 
   
-  // Handle mouse events to pause/resume slideshow
-  const handleMouseEnter = () => setIsPaused(true);
-  const handleMouseLeave = () => setIsPaused(false);
-  
-  // Handle manual navigation
-  const goToSlide = (index) => {
-    setCurrentImageIndex(index);
-    setIsPaused(true);
-    setTimeout(() => setIsPaused(false), 2000);
-  };
-  
-  // Parallax effect on mouse move
-  const handleMouseMove = (e) => {
+  // Disable mouse handlers in background mode
+  const handleMouseEnter = isBackgroundMode ? undefined : () => setIsPaused(true);
+  const handleMouseLeave = isBackgroundMode ? undefined : () => setIsPaused(false);
+  const handleMouseMove = isBackgroundMode ? undefined : (e) => {
     if (!slideshowRef.current) return;
     
     const { left, top, width, height } = slideshowRef.current.getBoundingClientRect();
@@ -78,10 +86,17 @@ export default function SouthernSlideshow() {
       activeSlide.style.transform = `scale(1.05) translate(${x * 20}px, ${y * 20}px)`;
     }
   };
-
+  
+  // Disable manual navigation in background mode
+  const goToSlide = isBackgroundMode ? undefined : (index) => {
+    setCurrentImageIndex(index);
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 2000);
+  };
+  
   return (
     <div 
-      className={styles.slideshowContainer} 
+      className={`${styles.slideshowContainer} ${isBackgroundMode ? styles.backgroundMode : ''}`} 
       ref={slideshowRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -98,26 +113,30 @@ export default function SouthernSlideshow() {
               alt={image.alt}
               fill
               priority={index === 0 || index === 1}
-              sizes="(max-width: 768px) 100vw, 600px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={styles.slideshowImage}
             />
           </div>
-          <div className={styles.caption}>
-            <p>{image.caption}</p>
-          </div>
+          {!isBackgroundMode && (
+            <div className={styles.caption}>
+              <p>{image.caption}</p>
+            </div>
+          )}
         </div>
       ))}
       
-      <div className={styles.slideshowDots}>
-        {images.map((_, index) => (
-          <button 
-            key={index} 
-            className={`${styles.slideshowDot} ${index === currentImageIndex ? styles.activeDot : ''}`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      {!isBackgroundMode && (
+        <div className={styles.slideshowDots}>
+          {images.map((_, index) => (
+            <button 
+              key={index} 
+              className={`${styles.slideshowDot} ${index === currentImageIndex ? styles.activeDot : ''}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 } 

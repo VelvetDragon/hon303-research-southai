@@ -1,4 +1,3 @@
-/* styles/Content.module.css */
 .contentContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -24,10 +23,9 @@
 .sectionDivider {
   height: 2px;
   background-color: #8B4513;
-  margin: 1.5rem 0;
+  margin: 1rem 0 1.5rem 0;
 }
 
-/* Content sections */
 .contentSection {
   margin-bottom: 2.5rem;
   padding: 0.5rem 0;
@@ -36,21 +34,22 @@
 .contentSection p,
 .spacedSection p,
 .subsection p {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
   line-height: 1.7;
 }
 
 .sectionSpacing {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .spacedSection {
-  margin-bottom: 2rem;
-  padding: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   border: 1px solid rgba(139, 69, 19, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
 }
 
 .spacedSection:hover {
@@ -58,11 +57,16 @@
   box-shadow: 0 4px 12px rgba(139, 69, 19, 0.08);
 }
 
-.contentSpacing {
-  margin: 1rem 0;
+.spacedSection > div {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-/* Lists */
+.spacedSection > div:last-child {
+  margin-bottom: 0;
+}
+
 .spacedList {
   margin: 1rem 0;
 }
@@ -85,14 +89,12 @@
   margin-bottom: 1.2rem;
 }
 
-/* Nested lists */
 .bulletList .bulletList,
 .numberedList .bulletList {
   margin-top: 0.8rem;
   margin-bottom: 0.8rem;
 }
 
-/* Subsections */
 .subsection {
   margin: 1.5rem 0;
 }
@@ -126,7 +128,6 @@
   transition: width 0.3s ease;
 }
 
-/* Animations */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -142,28 +143,38 @@
   .contentContainer {
     padding: 1.5rem;
   }
-  
+
   .pageTitle {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
-  
+
+  .sectionDivider {
+     margin: 1rem 0 1.5rem 0;
+  }
+
+  .contentSection {
+    margin-bottom: 2rem;
+  }
+
   .sectionTitle {
     font-size: 1.75rem;
+    margin-bottom: 1rem;
   }
-  
+
   .spacedSection {
+    margin-bottom: 1rem;
     padding: 1rem;
-    margin-bottom: 1.5rem;
   }
-  
+
+  .spacedSection > div {
+    margin-bottom: 0.8rem;
+  }
+
   .subsection h3 {
     font-size: 1.3rem;
   }
-  
-  .contentSpacing {
-    margin: 0.8rem 0;
-  }
-  
+
   .spacedList li {
     margin-bottom: 0.6rem;
   }

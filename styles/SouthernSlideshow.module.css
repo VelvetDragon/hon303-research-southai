@@ -167,6 +167,36 @@
   z-index: 5;
 }
 
+/* --- Styles for Background Mode --- */
+.backgroundMode {
+  position: absolute !important; /* Override relative position */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important; /* Explicitly use viewport height */
+  max-width: none !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  z-index: 1 !important; /* Ensure it's behind hero */
+  opacity: 1 !important; /* Make fully visible */
+  filter: none !important; /* Remove blur/saturate */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+/* Ensure image covers in background mode */
+.backgroundMode .slideshowImage {
+  transform: none !important; /* Reset transforms */
+  object-fit: cover;
+}
+
+/* Specific overrides if needed */
+.backgroundMode .imageWrapper { 
+  /* Any wrapper overrides */
+}
+
+/* Media query overrides for background mode if necessary */
 @media (max-width: 768px) {
   .slideshowContainer {
     height: 220px;
@@ -199,5 +229,11 @@
   .activeDot {
     width: 10px;
     height: 10px;
+  }
+
+  /* Ensure background mode still covers */
+  .backgroundMode {
+     /* Adjust filter/opacity on mobile? */
+     /* filter: blur(2px) saturate(0.9); */
   }
 } 
