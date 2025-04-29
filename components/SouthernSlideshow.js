@@ -4,6 +4,11 @@ import styles from '../styles/SouthernSlideshow.module.css';
 
 const images = [
   {
+    src: '/images/shrimp-grits.jpg',
+    alt: 'Fried chicken',
+    caption: 'Crispy fried chicken with a side of mashed potatoes'
+  },
+  {
     src: '/images/biscuits-gravy.jpg',
     alt: 'Southern fried chicken with biscuits',
     caption: 'Classic fried chicken and buttermilk biscuits'
@@ -28,11 +33,7 @@ const images = [
     alt: 'Fried chicken',
     caption: 'Crispy fried chicken with a side of mashed potatoes'
   },
-  {
-    src: '/images/shrimp-grits.jpg',
-    alt: 'Fried chicken',
-    caption: 'Crispy fried chicken with a side of mashed potatoes'
-  },
+  
   {
     src: '/images/pecan_pie.jpg',
     alt: 'Fried chicken',

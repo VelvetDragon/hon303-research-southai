@@ -24,9 +24,6 @@ export default function Layout({ children, isHomepage = false }) {
           <a className={styles.brandContainer}>
             {" "}
             <h2 className={styles.brandName}>Honors Research</h2>
-            <p className={styles.tagline}>
-              Exploring Southern Culinary Traditions
-            </p>
           </a>
         </Link>
         <nav className={styles.navigation}>
@@ -63,7 +60,7 @@ export default function Layout({ children, isHomepage = false }) {
 
             {/* Github Link */}
             <a
-              href="YOUR_GITHUB_URL" // << REPLACE with your Github URL
+              href="https://github.com/VelvetDragon" // << REPLACE with your Github URL
               aria-label="Github"
               target="_blank"
               rel="noopener noreferrer"
@@ -73,7 +70,7 @@ export default function Layout({ children, isHomepage = false }) {
 
             {/* LinkedIn Link */}
             <a
-              href="YOUR_LINKEDIN_URL" // << REPLACE with your LinkedIn URL
+              href="https://www.linkedin.com/in/suwan-aryal" // << REPLACE with your LinkedIn URL
               aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
@@ -83,7 +80,7 @@ export default function Layout({ children, isHomepage = false }) {
 
             {/* Instagram Link */}
             <a
-              href="YOUR_INSTAGRAM_URL" // << REPLACE with your Instagram URL
+              href="https://www.instagram.com/s_.uwan/" // << REPLACE with your Instagram URL
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -93,7 +90,7 @@ export default function Layout({ children, isHomepage = false }) {
 
             {/* Facebook Link */}
             <a
-              href="YOUR_FACEBOOK_URL" // << REPLACE with your Facebook URL
+              href="https://www.facebook.com/suwan.aryal.3" // << REPLACE with your Facebook URL
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"
@@ -102,14 +99,7 @@ export default function Layout({ children, isHomepage = false }) {
             </a>
 
             {/* Twitter Link */}
-            <a
-              href="YOUR_TWITTER_URL" // << REPLACE with your Twitter URL
-              aria-label="Twitter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter size={20} /> {/* React Icons Twitter Component */}
-            </a>
+            
           </div>
         </div>
       </footer>
