@@ -211,7 +211,7 @@ def generate_recipe():
         </h2>
         <p>
           My research draws from historical Southern cookbooks from the McCain
-          Library's collection at The University of Southern Mississippi. Each
+          Library&apos;s collection at The University of Southern Mississippi. Each
           cookbook provides unique insights into traditional Southern cooking
           methods and recipes:
         </p>
@@ -580,7 +580,7 @@ def generate_recipe():
           <h3>Subjective Authenticity</h3>
           <div className={styles.contentSpacing}>
             <p>
-              Defining and evaluating the "authenticity" of Southern cooking is
+              Defining and evaluating the &quot;authenticity&quot; of Southern cooking is
               inherently subjective and can vary significantly based on
               individual background, family traditions, and specific geographic
               locations within the South. Culinary practices and preferred
@@ -588,10 +588,10 @@ def generate_recipe():
               between nearby parishes or counties. It is possible that certain highly localized or unique
               culinary idiosyncrasies (for example, specific spice blends used
               only in a particular Delta region versus those common in Cajun
-              areas) may not be universally agreed upon as "authentic" across
+              areas) may not be universally agreed upon as &quot;authentic&quot; across
               all Southern culinary experts or practitioners. This subjectivity
-              means that the model's output, while aiming for general Southern
-              characteristics, may not perfectly align with every individual's
+              means that the model&apos;s output, while aiming for general Southern
+              characteristics, may not perfectly align with every individual&apos;s
               definition of an authentic regional recipe.
             </p>
           </div>
@@ -609,10 +609,10 @@ def generate_recipe():
               Lowcountry of South Carolina, the Appalachian hill country of
               Tennessee, or the distinct culinary landscapes of Texas and
               Florida have unique ingredients, techniques, and recipe styles.
-              Consequently, the model's training data may not fully capture the
+              Consequently, the model&apos;s training data may not fully capture the
               local flavors, terminology, and methods characteristic of these
               under-represented areas. This regional bias in the training data
-              could limit the model's ability to generate recipes that are
+              could limit the model&apos;s ability to generate recipes that are
               authentically representative of all Southern sub-regions.
             </p>
           </div>
@@ -629,11 +629,11 @@ def generate_recipe():
               and correct transcription errors, the inherent challenges of
               reading varied handwriting styles and faded or damaged print mean
               that some inaccuracies may remain. These inaccuracies, referred to
-              as "noise," could include misidentified ingredient names,
+              as &quot;noise,&quot; could include misidentified ingredient names,
               incorrect measurements, or errors in the procedural steps. Despite
               careful proofreading and data validation, a small percentage of
               such errors might have been introduced into the training dataset,
-              potentially influencing the model's learning process and the
+              potentially influencing the model&apos;s learning process and the
               accuracy of the generated recipes.
             </p>
           </div>
@@ -655,7 +655,7 @@ def generate_recipe():
               recipes, while substantial, represents a finite collection.
               Expanding the dataset with a greater volume and diversity of
               Southern recipes from various regions and time periods would
-              likely enhance the model's ability to learn less common regional
+              likely enhance the model&apos;s ability to learn less common regional
               terms, niche cooking steps, and a broader spectrum of Southern
               culinary expressions.
             </p>
