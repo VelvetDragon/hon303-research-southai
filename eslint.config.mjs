@@ -14,9 +14,11 @@ const eslintConfig = [
   // Add a new configuration object to define custom rules
   {
     rules: {
-      // Disable the 'quotes' rule to allow both single and double quotes
-      'quotes': 'off',
-      // You can add other custom rules here if needed
+    "@next/next/no-html-link-for-pages": "off",
+    "react/no-unescaped-entities": "off",
+    // --- Other rules ---
+    "react/react-in-jsx-scope": "off"
+    // ... your other custom rulesou can add other custom rules here if needed
     },
   },
 ];
