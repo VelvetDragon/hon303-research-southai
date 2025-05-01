@@ -8,12 +8,12 @@ const citationsList = [
   { id: 'cite-2', text: 'Out of the Skillet: Old Southern Recipes; 1947. 1947. McCain Library Archives, The University of Southern Mississippi, 1947.' },
   { id: 'cite-3', text: 'Lintonia Garden Club (Yazoo City, Miss. ). Treasure of Personal Recipes; 1965. 1965, McCain Library Archives, The University of Southern Mississippi, 1965.' },
   { id: 'cite-4', text: '"GPT Neo." Hugging Face, huggingface.co/docs/transformers/en/model_doc/gpt_neo.' },
-  // Add more citations as needed, ensuring IDs match the links in findings.js
+  
 ];
 
 export default function Citations() {
   const router = useRouter();
-  const highlightedRef = useRef(null); // Ref to track the highlighted element
+  const highlightedRef = useRef(null); 
 
   useEffect(() => {
     // Function to handle highlighting
@@ -27,7 +27,7 @@ export default function Citations() {
             highlightedRef.current.classList.remove(styles.highlight);
           }
 
-          // Scroll and highlight the new element
+          
           element.scrollIntoView({ behavior: 'smooth', block: 'center' });
           element.classList.add(styles.highlight);
           highlightedRef.current = element; // Store reference to the highlighted element
