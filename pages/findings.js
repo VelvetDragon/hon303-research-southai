@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Content.module.css";
 import { Chart, registerables } from "chart.js";
+import Link from "next/link";
 
 // Register Chart.js components
 Chart.register(...registerables);
@@ -505,23 +506,23 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           notes present in the historical recipes, such as making gravy from pan
           drippings
           <sup>
-            <a
+            <Link
               className={styles.citationLink}
               href="/citations#cite-2"
               onClick={(e) => handleCitationClick(e, "cite-2")}
             >
               [2]
-            </a>
+            </Link>
           </sup>{" "}
           or using unique regional ingredients mentioned in specific sources
           <sup>
-            <a
+            <Link
               className={styles.citationLink}
               href="/citations#cite-1"
               onClick={(e) => handleCitationClick(e, "cite-1")}
             >
               [1]
-            </a>
+            </Link>
           </sup>
           . This suggests the AI learns common statistical associations in the
           text but lacks the deeper understanding required to preserve true
@@ -534,7 +535,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>2. Quantitative Metrics</h2>
         <p>
-          To objectively assess the AI's performance, I employed several
+          To objectively assess the AI&apos;s performance, I employed several
           quantitative measures comparing the generated recipes to their
           historical counterparts.
         </p>
@@ -543,7 +544,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
         <div className={styles.subsection}>
           <h3>2.1 Ingredient Fidelity Analysis</h3>
           <p>
-            I measured how closely the AI's ingredient choices matched the
+            I measured how closely the AI&apos;s ingredient choices matched the
             historical recipes using an ingredient overlap percentage. This was
             calculated by dividing the number of ingredients shared between the
             AI and human versions by the total number of unique ingredients
@@ -572,7 +573,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
                 <td>~60%</td>{" "}
                 {/* Using original text's calculation assumption */}
                 <td>
-                  AI added buttermilk/spices, used oil/shortening vs. 'grease'.
+                  AI added buttermilk/spices, used oil/shortening vs. grease.
                 </td>
               </tr>
               <tr>
@@ -605,7 +606,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
                 <td>~63%</td>
                 <td>
                   AI added optional flour, specified fat type (vs. generic
-                  'greased').
+                  greased).
                 </td>
               </tr>
             </tbody>
@@ -624,13 +625,13 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
             AI generated a standard modern recipe, missing the unique
             ingredients specified in the historical source
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-1"
                 onClick={(e) => handleCitationClick(e, "cite-1")}
               >
                 [1]
-              </a>
+              </Link>
             </sup>
             . Generally, the AI identifies essential ingredients but often adds
             more components or substitutes traditional ones, reflecting modern
@@ -704,27 +705,27 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
             recipes with more steps than the historical versions. This often reflects a modern preference for explicit detail
             (e.g., separate cleaning, prepping, sautéing steps) which can
             improve clarity. While the AI captured some core techniques (like
-            using a hot pan for cornbread), the increased step count didn't
+            using a hot pan for cornbread), the increased step count didn&apos;t
             always equate to better historical fidelity. Key traditional steps,
             like making fried chicken gravy
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-2"
                 onClick={(e) => handleCitationClick(e, "cite-2")}
               >
                 [2]
-              </a>
+              </Link>
             </sup>{" "}
             or the specific additions in the collards recipe
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-1"
                 onClick={(e) => handleCitationClick(e, "cite-1")}
               >
                 [1]
-              </a>
+              </Link>
             </sup>
             , were often missing. This suggests the AI elaborates based on
             general recipe conventions rather than strictly adhering to the
@@ -737,7 +738,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           <h3>2.3 Language Model Performance Metrics</h3>
           <p>
             Beyond comparing recipe content, we used standard Natural Language
-            Processing (NLP) metrics to assess the AI's text generation quality
+            Processing (NLP) metrics to assess the AI&apos;s text generation quality
             itself, based on how well it predicted text similar to the
             historical cookbook style. We looked at Perplexity (lower is better,
             indicating higher confidence/fluency) and ROUGE-L F1-score (higher
@@ -784,13 +785,13 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
             <strong>Interpretation:</strong> The illustrative scores in Table 3
             and Chart 3 suggest the fine-tuned GPT-Neo model
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-8"
                 onClick={(e) => handleCitationClick(e, "cite-8")}
               >
                 [8]
-              </a>
+              </Link>
             </sup>{" "}
             learned the general language patterns of the cookbooks reasonably
             well (moderate Perplexity). The ROUGE-L score indicates that while
@@ -810,8 +811,8 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           ingredients, techniques, cookware, or turns of phrase that act as
           cultural markers. We assessed whether the AI included such markers
           identified from the historical recipes or characteristic of
-          traditional Southern cooking. ('✔️' = Generally Present/Aligned, '
-          <span className={styles.missing}>❌</span>' = Missing/Significantly
+          traditional Southern cooking. (&apos;✔️&apos; = Generally Present/Aligned, &apos;
+          <span className={styles.missing}>❌</span>&apos; = Missing/Significantly
           Altered).
         </p>
         {/* --- TABLE 4 --- */}
@@ -893,7 +894,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
         </div>
         <p>
           <strong>Interpretation:</strong> The chart above clearly
-          shows the AI's inconsistency in capturing cultural markers. While it
+          shows the AI&apos;s inconsistency in capturing cultural markers. While it
           often recognized the importance of elements like using smoked meat fat
           in collards or a cast-iron skillet for cornbread, it frequently missed
           others. Key omissions included the preference for traditional fats
@@ -913,7 +914,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
         <h2 className={styles.sectionTitle}>4. Side-by-Side Case Studies</h2>
         <p>
           Comparing excerpts directly offers a clear view of the differences
-          between the historical recipes and the AI's interpretations. These
+          between the historical recipes and the AI&apos;s interpretations. These
           examples highlight the patterns discussed previously.
         </p>
         {/* --- Case Studies 4.1 - 4.4 --- */}
@@ -925,13 +926,13 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
               <h4>
                 Human Recipe (Out of the Skillet, 1947)
                 <sup>
-                  <a
+                  <Link
                     className={styles.citationLink}
                     href="/citations#cite-2"
                     onClick={(e) => handleCitationClick(e, "cite-2")}
                   >
                     [2]
-                  </a>
+                  </Link>
                 </sup>
               </h4>
               <div className={styles.codeSnippet}>
@@ -970,13 +971,13 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
               <h4>
                 Human Recipe (Adapted from Treasure of Personal Recipes, 1965)
                 <sup>
-                  <a
+                  <Link
                     className={styles.citationLink}
                     href="/citations#cite-3"
                     onClick={(e) => handleCitationClick(e, "cite-3")}
                   >
                     [3]
-                  </a>
+                  </Link>
                 </sup>
               </h4>
               <div className={styles.codeSnippet}>
@@ -1001,11 +1002,11 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
             provides more detailed mixing instructions.
           </p>
           <p>
-            <strong>Analysis:</strong> While the core "cut-in fat" method is
+            <strong>Analysis:</strong> While the core &quot;cut-in fat&quot; method is
             captured, the AI defaults to modern ingredient preferences
             (butter/buttermilk for flavor and tenderness) over the historical
             standard (shortening/milk, common for texture and shelf-stability in
-            the past). It's a subtle modernization that changes the recipe's
+            the past). It&apos;s a subtle modernization that changes the recipe&apos;s
             character.
           </p>
         </div>
@@ -1017,13 +1018,13 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
               <h4>
                 Human Recipe (Ella Woods, Collards: A Southern Tradition)
                 <sup>
-                  <a
+                  <Link
                     className={styles.citationLink}
                     href="/citations#cite-1"
                     onClick={(e) => handleCitationClick(e, "cite-1")}
                   >
                     [1]
-                  </a>
+                  </Link>
                 </sup>
               </h4>
               <div className={styles.codeSnippet}>
@@ -1043,16 +1044,16 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           </div>
           <p>
             <strong>Key Differences:</strong> The AI generates a very standard
-            "Southern collards" recipe using common smoked meats (ham
+            &quot;Southern collards&quot; recipe using common smoked meats (ham
             hock/turkey), onion, garlic, broth, and vinegar. It completely
-            misses the source's unique use of salted hog jowl, meat tenderizer,
+            misses the source&apos;s unique use of salted hog jowl, meat tenderizer,
             and baking soda, and provides far more detailed, lengthy
             instructions.
           </p>
           <p>
-            <strong>Analysis:</strong> This clearly shows the AI's tendency to
+            <strong>Analysis:</strong> This clearly shows the AI&apos;s tendency to
             generalize. Faced with a unique, possibly idiosyncratic recipe, it
-            reverts to the most common statistical pattern for "collard greens"
+            reverts to the most common statistical pattern for &quot;collard greens&quot;
             in its training data (or broader knowledge), failing to preserve the
             specific traditional method described by Ella Woods.
           </p>
@@ -1065,13 +1066,13 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
               <h4>
                 Human Recipe (Out of the Skillet, 1947)
                 <sup>
-                  <a
+                  <Link
                     className={styles.citationLink}
                     href="/citations#cite-2"
                     onClick={(e) => handleCitationClick(e, "cite-2")}
                   >
                     [2]
-                  </a>
+                  </Link>
                 </sup>
               </h4>
               <div className={styles.codeSnippet}>
@@ -1113,10 +1114,10 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
         <h2 className={styles.sectionTitle}>7. Embedding-Space Visualization</h2>
 
         <p>
-          To explore the overall semantic relationships between the recipes – essentially, what the recipes are about at a higher level – I used a technique called embedding. Think of embedding as creating a unique digital "fingerprint" for each recipe based on its text. Recipes with similar meanings or topics will have fingerprints that are numerically close to each other.
+          To explore the overall semantic relationships between the recipes – essentially, what the recipes are about at a higher level – I used a technique called embedding. Think of embedding as creating a unique digital &quot;fingerprint&quot; for each recipe based on its text. Recipes with similar meanings or topics will have fingerprints that are numerically close to each other.
         </p>
         <p>
-            I generated these "fingerprints" (called vector embeddings) for all 12 recipes in our expanded sample (6 human, 6 AI) using a specialized AI model called `all-MiniLM-L6-v2`, which is good at understanding the meaning of sentences and paragraphs. These fingerprints are initially very complex, existing in a high-dimensional space (many numbers).
+            I generated these &quot;fingerprints&quot; (called vector embeddings) for all 12 recipes in our expanded sample (6 human, 6 AI) using a specialized AI model called `all-MiniLM-L6-v2`, which is good at understanding the meaning of sentences and paragraphs. These fingerprints are initially very complex, existing in a high-dimensional space (many numbers).
         </p>
         <p>
             To make these complex fingerprints understandable and visual, I used a technique called UMAP (Uniform Manifold Approximation and Projection). Imagine taking those multi-dimensional fingerprints and carefully arranging them on a 2D map (like the scatter plot you see below) so that recipes whose fingerprints were close in the original complex space remain close on the map. Recipes with similar overall semantic content should theoretically appear closer together in this 2D space.
@@ -1130,16 +1131,16 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
         </p>
         <ul className={styles.bulletList}>
             <li>
-                <strong>Significant Intermingling:</strong> The most notable feature is the lack of clear separation between the human and AI recipe groups. The brown and teal dots are considerably mixed together across the plotted space. This means that, based on their overall semantic "fingerprints," the AI recipes don't form a completely separate group from the human ones.
+                <strong>Significant Intermingling:</strong> The most notable feature is the lack of clear separation between the human and AI recipe groups. The brown and teal dots are considerably mixed together across the plotted space. This means that, based on their overall semantic &quot;fingerprints&quot;, the AI recipes don&apos;t form a completely separate group from the human ones.
             </li>
             <li>
-                <strong>Shared Semantic Space:</strong> This overlap strongly suggests that, according to the semantic understanding captured by the embedding model and visualized through UMAP, the AI-generated recipes in this expanded set occupy a very similar overall semantic space to the historical human-authored recipes. There isn't a distinct "AI-style" region separate from the "human-style" region in this representation. They feel similar in their core meaning.
+                <strong>Shared Semantic Space:</strong> This overlap strongly suggests that, according to the semantic understanding captured by the embedding model and visualized through UMAP, the AI-generated recipes in this expanded set occupy a very similar overall semantic space to the historical human-authored recipes. There isn&apos;t a distinct &quot;AI-style&quot; region separate from the "human-style" region in this representation. They feel similar in their core meaning.
             </li>
             <li>
                 <strong>Internal Diversity:</strong> Both groups exhibit a noticeable spread, indicating semantic diversity within the human recipes and within the AI-generated recipes. Neither group forms a single, tight cluster. This is expected, as even human-authored recipes for the same dish can vary, and different dishes (like Chicken Spaghetti and Tamale Pie) will naturally have different meanings.
             </li>
             <li>
-                <strong>Contrast with Specific Differences:</strong> This finding presents an interesting contrast to the analyses focusing on specific ingredients, steps, and cultural markers, where clear differences and modernization tendencies were identified in the AI recipes. The embedding visualization, which captures higher-level semantic meaning (the overall "gist" of the recipe), suggests that despite these specific alterations (like using butter instead of shortening), the fundamental topic (e.g., "how to make biscuits"), the general structure, and the language used by the AI remain closely related enough to the source material to plot within the same general semantic area for these examples. The AI captures the "spirit" or main idea, even if the details differ.
+                <strong>Contrast with Specific Differences:</strong> This finding presents an interesting contrast to the analyses focusing on specific ingredients, steps, and cultural markers, where clear differences and modernization tendencies were identified in the AI recipes. The embedding visualization, which captures higher-level semantic meaning (the overall &quot;gist&quot; of the recipe), suggests that despite these specific alterations (like using butter instead of shortening), the fundamental topic (e.g., &quot;how to make biscuits&quot;), the general structure, and the language used by the AI remain closely related enough to the source material to plot within the same general semantic area for these examples. The AI captures the &quot;spirit&quot; or main idea, even if the details differ.
             </li>
         </ul>
       </section>
@@ -1148,52 +1149,52 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>7. Limitations & Interpretation</h2>
         <p>
-          It's important to consider the limitations of this research when
+          It&apos;s important to consider the limitations of this research when
           interpreting the findings:
         </p>
         <ul className={styles.bulletList}>
           <li>
-            <strong>Subjectivity of "Authenticity":</strong> What constitutes
-            "authentic" Southern cooking is debatable and evolves. This study
+            <strong>Subjectivity of &quot;Authenticity&quot;:</strong> What constitutes
+            &quot;authentic&quot; Southern cooking is debatable and evolves. This study
             uses specific historical cookbooks
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-1"
                 onClick={(e) => handleCitationClick(e, "cite-1")}
               >
                 [1]
-              </a>
+              </Link>
             </sup>
             <sup>,</sup>
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-2"
                 onClick={(e) => handleCitationClick(e, "cite-2")}
               >
                 [2]
-              </a>
+              </Link>
             </sup>
             <sup>,</sup>
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-3"
                 onClick={(e) => handleCitationClick(e, "cite-3")}
               >
                 [3]
-              </a>
+              </Link>
             </sup>
             <sup>,</sup>
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-4"
                 onClick={(e) => handleCitationClick(e, "cite-4")}
               >
                 [4]
-              </a>
+              </Link>
             </sup>{" "}
             as a fixed reference point, which may not capture the full spectrum
             of tradition.
@@ -1211,13 +1212,13 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           <li>
             <strong>Model Capabilities:</strong> GPT-Neo
             <sup>
-              <a
+              <Link
                 className={styles.citationLink}
                 href="/citations#cite-8"
                 onClick={(e) => handleCitationClick(e, "cite-8")}
               >
                 [8]
-              </a>
+              </Link>
             </sup>
             , while effective, is not the most advanced model. Larger or
             different models might perform differently.
@@ -1236,8 +1237,8 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           Therefore, while AI demonstrates impressive capabilities in generating
           recipe-like text, these results suggest it currently acts more as a
           sophisticated pattern-matcher and synthesizer than as a true
-          interpreter of deep culinary history and culture. It learns the "what"
-          (ingredients, basic steps) better than the "how" and "why" (specific
+          interpreter of deep culinary history and culture. It learns the &quot;what&quot;
+          (ingredients, basic steps) better than the &quot;how&quot; and &quot;why&quot; (specific
           techniques, cultural significance).
         </p>
       </section>
@@ -1289,7 +1290,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           </li>
           <li>
             <strong>Broaden and Diversify Data:</strong> Include cookbooks from
-            more regions and time periods to study AI's ability to handle
+            more regions and time periods to study AI&apos;s ability to handle
             greater variation.
           </li>
           <li>
