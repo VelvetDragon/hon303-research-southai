@@ -4,15 +4,10 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Content.module.css'; // Use the same styles
 
 const citationsList = [
-  { id: 'cite-1', text: 'Farmer, April. *Collards: A Southern Tradition from Seed to Table*. Columbia: University of South Carolina Press, 2020.' },
-  { id: 'cite-2', text: '*Out of the Skillet: Old Southern Recipes*. Mississippi Community Cookbook Collection, McCain Library Archives, The University of Southern Mississippi, 1947.' },
-  { id: 'cite-3', text: '*Treasure of Personal Recipes*. Mississippi Community Cookbook Collection, McCain Library Archives, The University of Southern Mississippi, 1965.' },
-  { id: 'cite-4', text: 'Coahoma Woman’s Club. *Coahoma Cooking*. Clarksdale, MS: Coahoma Press, 1952.' },
-  // Add placeholders or actual citations for tools/libs if needed
-  { id: 'cite-5', text: 'React. https://reactjs.org/' },
-  { id: 'cite-6', text: 'Chart.js. https://www.chartjs.org/' },
-  { id: 'cite-7', text: 'Next.js. https://nextjs.org/' }, // Added Next.js
-  { id: 'cite-8', text: 'Hugging Face Transformers (for GPT-Neo). https://huggingface.co/docs/transformers/index' },
+  { id: 'cite-1', text: 'Davis, Edward H., and John (John T. ). Morgan. Collards : A Southern Tradition from Seed to Table. The University Alabama Press, 2015.' },
+  { id: 'cite-2', text: 'Out of the Skillet: Old Southern Recipes; 1947. 1947. McCain Library Archives, The University of Southern Mississippi, 1947.' },
+  { id: 'cite-3', text: 'Lintonia Garden Club (Yazoo City, Miss. ). Treasure of Personal Recipes; 1965. 1965, McCain Library Archives, The University of Southern Mississippi, 1965.' },
+  { id: 'cite-4', text: '"GPT Neo." Hugging Face, huggingface.co/docs/transformers/en/model_doc/gpt_neo.' },
   // Add more citations as needed, ensuring IDs match the links in findings.js
 ];
 

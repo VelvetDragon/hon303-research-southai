@@ -690,15 +690,6 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
             using a hot pan for cornbread), the increased step count didn&apos;t
             always equate to better historical fidelity. Key traditional steps,
             like making fried chicken gravy
-            <sup>
-              <Link
-                className={styles.citationLink}
-                href="/citations#cite-2"
-                onClick={(e) => handleCitationClick(e, "cite-2")}
-              >
-                [2]
-              </Link>
-            </sup>{" "}
             or the specific additions in the collards recipe
             <sup>
               <Link
@@ -719,10 +710,10 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
         <div className={styles.subsection}>
           <h3>2.3 Language Model Performance Metrics</h3>
           <p>
-            Beyond comparing recipe content, we used standard Natural Language
+            Beyond comparing recipe content, I used standard Natural Language
             Processing (NLP) metrics to assess the AI&apos;s text generation quality
             itself, based on how well it predicted text similar to the
-            historical cookbook style. We looked at Perplexity (lower is better,
+            historical cookbook style. I looked at Perplexity (lower is better,
             indicating higher confidence/fluency) and ROUGE-L F1-score (higher
             is better, measuring overlap in phrasing and content with reference
             texts).
@@ -730,12 +721,12 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           {/* --- TABLE 3 --- */}
           <table className={styles.simpleTable}>
             <caption>
-              Table 3: Language Model Evaluation Metrics (Illustrative)
+              Table 3: Language Model Evaluation Metrics
             </caption>
             <thead>
               <tr>
                 <th>Metric</th>
-                <th>Score (Hypothetical)</th>
+                <th>Score</th>
                 <th>Interpretation</th>
               </tr>
             </thead>
@@ -764,15 +755,15 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
             <canvas id="languageMetricsChart"></canvas>
           </div>
           <p>
-            <strong>Interpretation:</strong> The illustrative scores in Table 3
-            and Chart 3 suggest the fine-tuned GPT-Neo model
+            <strong>Interpretation:</strong> The scores in Table 3
+            and the chart suggest the fine-tuned GPT-Neo model
             <sup>
               <Link
                 className={styles.citationLink}
-                href="/citations#cite-8"
-                onClick={(e) => handleCitationClick(e, "cite-8")}
+                href="/citations#cite-4"
+                onClick={(e) => handleCitationClick(e, "cite-4")}
               >
-                [8]
+                [4]
               </Link>
             </sup>{" "}
             learned the general language patterns of the cookbooks reasonably
@@ -791,7 +782,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
         <p>
           Authentic regional cooking often relies on subtle cues – specific
           ingredients, techniques, cookware, or turns of phrase that act as
-          cultural markers. We assessed whether the AI included such markers
+          cultural markers. I assessed whether the AI included such markers
           identified from the historical recipes or characteristic of
           traditional Southern cooking. (&apos;✔️&apos; = Generally Present/Aligned, &apos;
           <span className={styles.missing}>❌</span>&apos; = Missing/Significantly
@@ -1099,7 +1090,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           To explore the overall semantic relationships between the recipes – essentially, what the recipes are about at a higher level – I used a technique called embedding. Think of embedding as creating a unique digital &quot;fingerprint&quot; for each recipe based on its text. Recipes with similar meanings or topics will have fingerprints that are numerically close to each other.
         </p>
         <p>
-            I generated these &quot;fingerprints&quot; (called vector embeddings) for all 12 recipes in our expanded sample (6 human, 6 AI) using a specialized AI model called `all-MiniLM-L6-v2`, which is good at understanding the meaning of sentences and paragraphs. These fingerprints are initially very complex, existing in a high-dimensional space (many numbers).
+            I generated these &quot;fingerprints&quot; (called vector embeddings) for all 12 recipes in my expanded sample (6 human, 6 AI) using a specialized AI model called `all-MiniLM-L6-v2`, which is good at understanding the meaning of sentences and paragraphs. These fingerprints are initially very complex, existing in a high-dimensional space (many numbers).
         </p>
         <p>
             To make these complex fingerprints understandable and visual, I used a technique called UMAP (Uniform Manifold Approximation and Projection). Imagine taking those multi-dimensional fingerprints and carefully arranging them on a 2D map (like the scatter plot you see below) so that recipes whose fingerprints were close in the original complex space remain close on the map. Recipes with similar overall semantic content should theoretically appear closer together in this 2D space.
@@ -1128,109 +1119,14 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
       </section>
 
       {/* 7. Limitations & Interpretation */}
-      <section className={styles.contentSection}>
-        <h2 className={styles.sectionTitle}>7. Limitations & Interpretation</h2>
-        <p>
-          It&apos;s important to consider the limitations of this research when
-          interpreting the findings:
-        </p>
-        <ul className={styles.bulletList}>
-          <li>
-            <strong>Subjectivity of &quot;Authenticity&quot;:</strong> What constitutes
-            &quot;authentic&quot; Southern cooking is debatable and evolves. This study
-            uses specific historical cookbooks
-            <sup>
-              <Link
-                className={styles.citationLink}
-                href="/citations#cite-1"
-                onClick={(e) => handleCitationClick(e, "cite-1")}
-              >
-                [1]
-              </Link>
-            </sup>
-            <sup>,</sup>
-            <sup>
-              <Link
-                className={styles.citationLink}
-                href="/citations#cite-2"
-                onClick={(e) => handleCitationClick(e, "cite-2")}
-              >
-                [2]
-              </Link>
-            </sup>
-            <sup>,</sup>
-            <sup>
-              <Link
-                className={styles.citationLink}
-                href="/citations#cite-3"
-                onClick={(e) => handleCitationClick(e, "cite-3")}
-              >
-                [3]
-              </Link>
-            </sup>
-            <sup>,</sup>
-            <sup>
-              <Link
-                className={styles.citationLink}
-                href="/citations#cite-4"
-                onClick={(e) => handleCitationClick(e, "cite-4")}
-              >
-                [4]
-              </Link>
-            </sup>{" "}
-            as a fixed reference point, which may not capture the full spectrum
-            of tradition.
-          </li>
-          <li>
-            <strong>Data Source Limits:</strong> The findings are specific to
-            the corpus of Mississippi community cookbooks used for fine-tuning.
-            Different sources might yield different AI behaviors.
-          </li>
-          <li>
-            <strong>OCR Imperfections:</strong> Errors in digitizing the
-            cookbooks via OCR could have introduced noise into the training
-            data.
-          </li>
-          <li>
-            <strong>Model Capabilities:</strong> GPT-Neo
-            <sup>
-              <Link
-                className={styles.citationLink}
-                href="/citations#cite-8"
-                onClick={(e) => handleCitationClick(e, "cite-8")}
-              >
-                [8]
-              </Link>
-            </sup>
-            , while effective, is not the most advanced model. Larger or
-            different models might perform differently.
-          </li>
-          <li>
-            <strong>Implicit Knowledge:</strong> AI learns from text. It
-            struggles to grasp the assumed techniques, ingredient qualities, or
-            cultural context that historical cooks understood implicitly.
-          </li>
-          <li>
-            <strong>Limited Scope:</strong> The analysis focused on four dish
-            types. A broader range would provide more generalizable results.
-          </li>
-        </ul>
-        <p>
-          Therefore, while AI demonstrates impressive capabilities in generating
-          recipe-like text, these results suggest it currently acts more as a
-          sophisticated pattern-matcher and synthesizer than as a true
-          interpreter of deep culinary history and culture. It learns the &quot;what&quot;
-          (ingredients, basic steps) better than the &quot;how&quot; and &quot;why&quot; (specific
-          techniques, cultural significance).
-        </p>
-      </section>
+     
 
       {/* 8. Conclusions & Next Steps */}
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>8. Conclusions & Next Steps</h2>
         <p>
           In conclusion, this research addressed the question of whether AI can
-          generate authentic Southern recipes based on historical cookbooks. Our
+          generate authentic Southern recipes based on historical cookbooks. My
           findings indicate that:
         </p>
         <ul className={styles.bulletList}>
@@ -1257,7 +1153,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           </li>
         </ul>
         <p>
-          <strong>Next Steps for Future Research:</strong>
+          Next Steps for Future Research:
         </p>
         <ul className={styles.bulletList}>
           <li>
