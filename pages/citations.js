@@ -85,7 +85,7 @@ export default function Citations() {
       <div className={styles.sectionDivider}></div>
 
       <button onClick={goBack} className={styles.button} style={{ marginBottom: '2rem' }}>
-         ← Go Back to Findings
+         ← Go Back
       </button>
 
       <ol className={styles.numberedList} style={{ paddingLeft: '1.5rem' }}>

@@ -1181,11 +1181,6 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
             statistical tests on a larger dataset to confirm the significance of
             observed trends.
           </li>
-          <li>
-            <strong>Implement Interactive Features:</strong> Add user feedback
-            mechanisms or comparative tools to the website for broader
-            evaluation and engagement.
-          </li>
         </ul>
       </section>
     </div> // End contentContainer
