@@ -10,7 +10,7 @@ export default function About() {
 
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>Research Background</h2>
-        <div className={styles.spacedSection}>
+        
           <p>
             Southern cooking is more than just recipes—it reflects the people, history, and culture
             of the American South. For generations, community church cookbooks and handwritten family
@@ -22,12 +22,12 @@ export default function About() {
             or adding cayenne pepper to honor Cajun influences in Louisiana. This project investigates
             whether a machine learning model can capture these nuances when generating new Southern recipes.
           </p>
-        </div>
+       
       </section>
 
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>Project Objectives</h2>
-        <div className={styles.spacedSection}>
+        
           <div>
             <h4>Data Collection & Preparation</h4>
             <p>
@@ -71,12 +71,12 @@ export default function About() {
               historical originals.
             </p>
           </div>
-        </div>
+        
       </section>
 
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>About the Author</h2>
-        <div className={styles.spacedSection}>
+        
           <div className={authorStyles.authorSection}>
             <Image
               src="/images/me.jpg"
@@ -112,7 +112,7 @@ export default function About() {
               </p>
             </div>
           </div>
-        </div>
+      
       </section>
     </div>
   );

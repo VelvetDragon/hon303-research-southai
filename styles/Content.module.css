@@ -279,7 +279,7 @@
 .button {
   display: inline-block;
   padding: 1rem 2rem;
-  background: #8B4513;
+  background-color: #8B4513;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -288,29 +288,280 @@
 }
 
 .button:hover {
-  background: #693109;
+  background-color: #693109;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
 }
 
-@media (max-width: 768px) {
-  .cookbooksGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0.5rem;
-  }
+/* Styles for the Findings Page */
+.simpleTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden; /* Ensures rounded corners apply to children */
+}
 
-  .cookbookEntry {
-    padding: 1.5rem;
-  }
+.simpleTable th,
+.simpleTable td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
 
-  .cookbookEntry h3 {
-    font-size: 1.2rem;
-    min-height: auto;
+.simpleTable thead tr {
+  background-color: #f3e9d9; /* Light background for header */
+  color: #5C4033; /* Darker text */
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.simpleTable tbody tr:nth-of-type(even) {
+  background-color: #fcf8f3; /* Alternate row color */
+}
+
+.simpleTable tbody tr:last-of-type td {
+  border-bottom: none; /* No border on the last row */
+}
+
+.simpleTable tbody tr:hover {
+  background-color: #f0e0c9; /* Hover effect */
+}
+
+/* Checklist Table Specific Styles */
+.checklistTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.checklistTable th,
+.checklistTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.checklistTable thead tr {
+    background-color: #f3e9d9;
+    color: #5C4033;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.checklistTable tbody tr:nth-of-type(even) {
+    background-color: #fcf8f3;
+}
+
+.checklistTable tbody tr:last-of-type td {
+    border-bottom: none;
+}
+
+.checklistTable tbody tr:hover {
+    background-color: #f0e0c9;
+}
+
+.codeSnippet {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 4px solid #8B4513;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto; /* Add horizontal scroll for long lines */
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.codeSnippet pre {
+  margin: 0;
+  padding: 0;
+}
+
+.codeSnippet code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  line-height: 1.5;
+}
+
+.missing {
+  color: #c0392b; /* Red color to indicate missing */
+  font-weight: bold;
+}
+
+.chartContainer {
+    position: relative; /* Needed for Chart.js responsiveness */
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: 300px; /* Set a fixed height or use aspect ratio */
+}
+
+/* Placeholder styles for non-implemented charts/visualizations */
+.chartPlaceholder,
+.visualizationPlaceholder {
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    min-height: 200px; /* Give it some visual space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+
+/* Recipe Diff Viewer Styles */
+.recipeDiffContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 2rem; /* Space between columns */
+    margin: 1.5rem 0;
+}
+
+.humanRecipe,
+.aiRecipe {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto; /* Add scroll if content is too wide */
+}
+
+.humanRecipe h4,
+.aiRecipe h4 {
+    margin-top: 0;
+    color: #5C4033;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.recipeDiffContainer pre {
+    margin: 0;
     padding: 0;
-  }
+}
 
-  .cookbookImage {
-    height: 350px;
-  }
+.recipeDiffContainer code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+/* Basic styling concept for diff highlights (requires JS to apply classes) */
+/*
+.addedLine {
+    background-color: #e6ffed; // Light green
+}
+
+.removedLine {
+    background-color: #ffebee; // Light red
+    text-decoration: line-through;
+    color: #888;
+}
+*/
+
+.commentary {
+    margin-top: 1.5rem;
+    font-style: italic;
+    color: #555;
+    border-left: 3px solid #8B4513;
+    padding-left: 1rem;
+}
+
+
+/* Modal Styles (Moved from methodology.js) */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* visibility and opacity handled by React state */
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.modalCloseButton:hover {
+  color: #333;
+}
+
+.modalPre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace;
+  font-size: 0.9rem;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* In Content.module.css */
+
+/* Specific class for citation links */
+.citationLink {
+  text-decoration: none;
+  color: #8B4513; /* Match section title color */
+  font-weight: bold;
+  font-size: 0.75em; /* Slightly smaller */
+  /* vertical-align: super; */ /* sup tag handles this */
+  padding: 0 0.1em;
+  transition: color 0.2s ease;
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+.citationLink:hover {
+  color: #693109; /* Darker on hover */
+  text-decoration: underline;
+}
+
+/* Keep the list item padding style */
+.numberedList li {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.5s ease;
+}
+
+/* Keep the highlight style */
+.highlight {
+  background-color: rgba(255, 215, 0, 0.3); /* Light yellow highlight */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

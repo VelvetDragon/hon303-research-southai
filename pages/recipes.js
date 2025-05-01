@@ -41,7 +41,7 @@ export default function Recipes() {
 
     setLoading(true);
     setError('');
-    setResults([]); // Clear previous results *before* new search
+    setResults([]); 
 
     try {
       const res = await fetch(
@@ -54,7 +54,7 @@ export default function Recipes() {
       let list = data.recipes ?? (data.recipe ? [data.recipe] : []);
       if (!list.length) {
         setError('No recipes found.');
-        // Keep results empty
+        
       } else {
         const normalizedQ = q.toLowerCase();
         list.sort((a, b) => {

@@ -19,7 +19,7 @@ export default function Home() {
           Southern cuisine.
         </div>
         
-        <Link href="/methodology" className={styles.exploreButton}>
+        <Link href="/about" className={styles.exploreButton}>
           Start Exploring
         </Link>
       </section>

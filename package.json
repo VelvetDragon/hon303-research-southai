@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "chart.js": "^4.4.9",
     "framer-motion": "^12.9.2",
     "mermaid": "^11.6.0",
     "next": "15.3.1",

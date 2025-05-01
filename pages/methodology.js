@@ -12,8 +12,6 @@ export default function Methodology() {
       {/* Research Approach */}
       <section className={styles.contentSection}>
         <h2 className={styles.sectionTitle}>Research Methodology</h2>
-
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
           <h3>Project Overview</h3>
           <p>
             This research project focuses on applying machine learning to recipe
@@ -22,9 +20,9 @@ export default function Methodology() {
             a standard machine learning pipeline: data collection,
             preprocessing, model training, and deployment.
           </p>
-        </div>
+        
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>1. Data Collection</h3>
           <p>
             The data collection phase focused on digitizing approximately 1,200
@@ -73,7 +71,7 @@ def process_cookbook(cookbook_images):
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>2. Data Preprocessing</h3>
           <p>
             The preprocessing stage converted raw OCR output into structured
@@ -116,13 +114,12 @@ def clean_recipe(raw_text):
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>3. Model Development</h3>
           <p>
             The model development phase utilized GPT-Neo as the base model, with
             specific optimizations for recipe generation:
           </p>
-
           <div className={styles.contentSpacing}>
             <h4>Training Configuration</h4>
             <ul className={`${styles.bulletList} ${styles.spacedList}`}>
@@ -161,7 +158,7 @@ trainer = Trainer(
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection} `}>
           <h3>4. System Deployment</h3>
           <p>
             The final system was deployed as a web service with the following
@@ -348,10 +345,10 @@ def generate_recipe():
       </section>
 
       {/* Understanding AI Fine-Tuning */}
-      <section className={`${styles.contentSection} ${styles.spacedSection}`}>
+      <section className={`${styles.contentSection}`}>
         <h2 className={styles.sectionTitle}>Understanding AI Fine-Tuning</h2>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>What is Fine-Tuning?</h3>
           <div className={styles.contentSpacing}>
             <p>
@@ -380,7 +377,7 @@ def generate_recipe():
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>The Fine-Tuning Process</h3>
           <div className={styles.contentSpacing}>
             <p>
@@ -446,7 +443,7 @@ def generate_recipe():
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>Technical Implementation Details</h3>
           <div className={styles.contentSpacing}>
             <p>
@@ -520,53 +517,9 @@ def generate_recipe():
         </div>
       </section>
 
-      {/* Testing the Results */}
-      {/* <section className={`${styles.contentSection} ${styles.spacedSection}`}>
-        <h2 className={styles.sectionTitle}>Testing the AI&apos;s Understanding</h2>
-        <p>
-          To rigorously evaluate how deeply the model has learned Southern cooking traditions, 
-          we applied three complementary methods:
-        </p>
-
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
-          <h3>Ingredient Comparison</h3>
-          <div className={styles.contentSpacing}>
-            <p>
-              We compared the AI&apos;s chosen ingredients against a curated list of authentic Southern staples—things 
-              like buttermilk, lard, crawfish, and Tabasco. For each generated recipe, we measured the presence 
-              or absence of these key items to see if the model defaulted to modern or non-traditional substitutes 
-              (for example, using vegetable oil instead of pork fat).
-            </p>
-          </div>
-        </div>
-
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
-          <h3>Recipe Structure Validation</h3>
-          <div className={styles.contentSpacing}>
-            <p>
-              Beyond ingredients, Southern recipes are defined by their sequence of steps—soaking, dredging, 
-              resting, slow simmering, etc. We checked that the AI&apos;s instructions not only listed the right 
-              techniques but also presented them in a logical, kitchen-ready order (e.g., &quot;mix dry ingredients → 
-              cut in fat → add liquid → roll/thin → bake&quot;).
-            </p>
-          </div>
-        </div>
-
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
-          <h3>Expert Review</h3>
-          <div className={styles.contentSpacing}>
-            <p>
-              We recruited two regional cooking experts—a master baker specializing in biscuits and a chef 
-              experienced in Gulf-Coast seafood—for a blind evaluation. They rated AI-generated versus 
-              human-authored recipes on a 1–5 scale for authenticity, flavor potential, and faithfulness to 
-              regional style, without knowing which recipes were machine-generated.
-            </p>
-          </div>
-        </div>
-      </section> */}
 
       {/* Research Limitations */}
-      <section className={`${styles.contentSection} ${styles.spacedSection}`}>
+      <section className={`${styles.contentSection} `}>
         <h2 className={styles.sectionTitle}>Research Limitations</h2>
         <p>
           As with any research project, this study has certain limitations that
@@ -576,7 +529,7 @@ def generate_recipe():
           available.
         </p>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>Subjective Authenticity</h3>
           <div className={styles.contentSpacing}>
             <p>
@@ -597,7 +550,7 @@ def generate_recipe():
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>Regional Coverage Gaps</h3>
           <div className={styles.contentSpacing}>
             <p>
@@ -618,7 +571,7 @@ def generate_recipe():
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>OCR & Transcription Noise</h3>
           <div className={styles.contentSpacing}>
             <p>
@@ -639,7 +592,7 @@ def generate_recipe():
           </div>
         </div>
 
-        <div className={`${styles.subsection} ${styles.spacedSection}`}>
+        <div className={`${styles.subsection}`}>
           <h3>Compute & Dataset Size</h3>
           <div className={styles.contentSpacing}>
             <p>
