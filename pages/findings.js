@@ -505,25 +505,7 @@ Preheat oven & skillet... Combine dry... Combine wet... Combine all... Add hot f
           Crucially, it frequently omitted culturally significant techniques or
           notes present in the historical recipes, such as making gravy from pan
           drippings
-          <sup>
-            <Link
-              className={styles.citationLink}
-              href="/citations#cite-2"
-              onClick={(e) => handleCitationClick(e, "cite-2")}
-            >
-              [2]
-            </Link>
-          </sup>{" "}
           or using unique regional ingredients mentioned in specific sources
-          <sup>
-            <Link
-              className={styles.citationLink}
-              href="/citations#cite-1"
-              onClick={(e) => handleCitationClick(e, "cite-1")}
-            >
-              [1]
-            </Link>
-          </sup>
           . This suggests the AI learns common statistical associations in the
           text but lacks the deeper understanding required to preserve true
           historical and cultural fidelity. The following sections present the
