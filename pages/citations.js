@@ -95,10 +95,6 @@ export default function Citations() {
           </li>
         ))}
       </ol>
-
-       <button onClick={goBack} className={styles.button} style={{ marginTop: '2rem' }}>
-         ← Go Back to Findings
-      </button>
     </div>
   );
 }
