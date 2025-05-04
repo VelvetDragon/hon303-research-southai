@@ -36,7 +36,7 @@ export default function Citations() {
           const timer = setTimeout(() => {
             element.classList.remove(styles.highlight);
             highlightedRef.current = null; // Clear the reference
-          }, 2000); // Highlight for 2 seconds
+          }, 2000);
 
           // Cleanup timer on component unmount or hash change
           return () => clearTimeout(timer);

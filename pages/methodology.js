@@ -33,7 +33,7 @@ export default function Methodology() {
             <h4>Technical Implementation</h4>
             <ul className={`${styles.bulletList} ${styles.spacedList}`}>
               <li>
-                Used Tesseract OCR for text extraction from scanned cookbook
+                Used pdfminer Python package for text extraction from scanned cookbook
                 pages
               </li>
               <li>Implemented custom Python scripts for batch processing</li>
@@ -45,26 +45,23 @@ export default function Methodology() {
               <pre>
                 <code>
                   {`# OCR Implementation
-import pytesseract
-from PIL import Image
+import argparse, pathlib
+from pdfminer.high_level import extract_text
 
-def process_cookbook_page(image_path):
-    image = Image.open(image_path)
-    # Convert to grayscale for better OCR accuracy
-    image = image.convert('L')
-    
-    # Extract text using Tesseract
-    text = pytesseract.image_to_string(image)
-    
-    return text
+def convert(pdf_path: pathlib.Path, outdir: pathlib.Path):
+    outdir.mkdir(parents=True, exist_ok=True)
+    txt_path = outdir / (pdf_path.stem + ".txt")
+    print(f"Converting {pdf_path.name} → {txt_path}")
+    txt_path.write_text(extract_text(pdf_path), encoding="utf-8")
+    print("Done!")
 
-# Usage in batch processing
-def process_cookbook(cookbook_images):
-    recipes = []
-    for image in cookbook_images:
-        text = process_cookbook_page(image)
-        recipes.append(text)
-    return recipes`}
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Convert OCR PDF to plain text")
+    parser.add_argument("pdf", type=pathlib.Path, help="Path to OCR PDF file")
+    parser.add_argument("--outdir", type=pathlib.Path, default=pathlib.Path("data/raw/cookbooks"),
+                        help="Output directory for .txt (default: data/raw/cookbooks)")
+    args = parser.parse_args()
+    convert(args.pdf, args.outdir)`}
                 </code>
               </pre>
             </div>
@@ -91,23 +88,133 @@ def process_cookbook(cookbook_images):
               <pre>
                 <code>
                   {`# Data cleaning pipeline
-def clean_recipe(raw_text):
-    # Remove OCR artifacts and normalize text
-    cleaned = re.sub(r'[^a-zA-Z0-9\\s.,()]', '', raw_text)
+def is_recipe_title(line: str) -> bool:
+    """Identify recipe titles based on Southern cookbook patterns."""
+    line = line.strip()
     
-    # Extract and structure recipe components
-    recipe_data = {
-        'title': extract_title(cleaned),
-        'ingredients': extract_ingredients(cleaned),
-        'instructions': extract_instructions(cleaned)
+    # Skip empty lines or single words (like "INDEX")
+    if not line or len(line.split()) <= 1:
+        return False
+    
+    # Skip lines that look like measurements or ingredient quantities
+    if re.match(r"^\d+\s+", line) or re.match(r"^[0-9½¼⅓⅔]+\s+[cCTtgk]\.?\s+", line):
+        return False
+    
+    # Skip lines that look like ingredient lists
+    if re.search(r"\b(cup|can|package|recipe|sauce|oz|pound|tablespoon|teaspoon|tbsp|tsp)\b", 
+                 line, re.IGNORECASE):
+        return False
+    
+    # Skip instruction lines
+    instruction_starters = ["mix", "combine", "stir", "add", "pour", "cook", "bake", "heat", 
+                           "place", "arrange", "season", "serve", "preheat", "drain"]
+    for starter in instruction_starters:
+        if line.lower().startswith(starter):
+            return False
+    
+    # All CAPS titles (common in community cookbooks)
+    if line.isupper() and len(line) <= 60:
+        return True
+    
+    # Title Case with 2-6 words (common recipe title format)
+    words = line.split()
+    if 1 < len(words) <= 6 and all(w[:1].isupper() for w in words if len(w) > 1):
+        # Further verification - avoid instruction lines in Title Case
+        if not re.search(r"\.\s*$", line):  # Titles rarely end with periods
+            return True
+            
+    return False
+
+def parse_sections(title: str, lines: list[str]) -> dict | None:
+    """
+    From the raw lines after a title, extract:
+      - ingredients: list of strings (no '- ' prefix)
+      - steps: list of strings (no numbering)
+    """
+    ing, steps = [], []
+    section = None
+
+    for line in lines:
+        line = line.strip()
+
+        # Detect section headers (Markdown-style **...** or plain text)
+        if re.match(r"(\*\*)?ingredients:(\*\*)?", line, re.I):
+            section = "ing"
+            continue
+        if re.match(r"(\*\*)?(steps|directions):(\*\*)?", line, re.I):
+            section = "step"
+            continue
+
+        # Collect bullet or numbered lines
+        if section == "ing":
+            # either "- item" or plain "1 can item"
+            if line.startswith("- "):
+                ing.append(line[2:].strip())
+            else:
+                ing.append(line)
+        elif section == "step":
+            # either "1. Do this" or plain sentences
+            m = re.match(r"^\d+\.\s+(.*)", line)
+            if m:
+                steps.append(m.group(1).strip())
+            else:
+                steps.append(line)
+
+    # Remove any empty entries
+    ing = [i for i in ing if i]
+    steps = [s for s in steps if s]
+    if not ing or not steps:
+        return None
+
+    # Normalize ingredient units if desired
+    ing = [normalize_ingredient(i) for i in ing]
+
+    return {
+        "title":       title,
+        "ingredients": ing,
+        "steps":       steps
     }
-    
-    # Normalize measurements
-    recipe_data['ingredients'] = normalize_measurements(
-        recipe_data['ingredients']
-    )
-    
-    return recipe_data`}
+
+def extract_recipes(txt_path):
+    raw = normalize(txt_path.read_text(encoding="utf-8", errors="ignore"))
+    lines = raw.splitlines()
+    recipes, buf = [], []
+    current_title = None
+
+    for line in lines:
+        if is_recipe_title(line):
+            # flush previous
+            if current_title:
+                parsed = parse_sections(current_title, buf)
+                if parsed:
+                    recipes.append(parsed)
+            current_title, buf = line.strip(), []
+        elif current_title:
+            buf.append(line)
+
+    # flush last one
+    if current_title:
+        parsed = parse_sections(current_title, buf)
+        if parsed:
+            recipes.append(parsed)
+
+    return recipes
+
+def normalize_ingredient(ing: str) -> str:
+    """Standardize units and fractions in a single ingredient line."""
+    # Expand common unit shorthands
+    unit_map = {
+        r"\bc\.?\b": "cup",
+        r"\bT\.?\b": "tbsp",
+        r"\bt\.?\b": "tsp",
+        
+    }
+    for pat, rep in unit_map.items():
+        ing = re.sub(pat, rep, ing, flags=re.I)
+    # Normalize fractions
+    ing = ing.replace("½", "1/2").replace("¼", "1/4")
+    return ing
+`}
                 </code>
               </pre>
             </div>

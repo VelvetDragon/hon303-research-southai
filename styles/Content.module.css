@@ -565,3 +565,93 @@
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+/* styles/Content.module.css */
+
+/* ... (keep all your existing styles) ... */
+
+/* Add or ensure these Modal Styles exist */
+.modalOverlay {
+  position: fixed; /* IMPORTANT: Use fixed positioning */
+  top: 0;          /* Position from the top of the viewport */
+  left: 0;         /* Position from the left of the viewport */
+  width: 100%;     /* Cover the full viewport width */
+  height: 100vh;   /* Cover the full viewport height (vh is often more reliable than 100% here) */
+  background-color: rgba(231, 219, 219, 0.7); /* Semi-transparent background */
+  display: flex;          /* Enable flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  z-index: 1000;          /* High z-index to be on top */
+  padding: 20px;          /* Add padding for smaller screens */
+  box-sizing: border-box; /* Include padding in dimensions */
+  overflow-y: auto;       /* Add scroll ONLY to the overlay if content overflows viewport, though modalContent scroll is usually preferred */
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh; /* Limit height to prevent overly tall modals */
+  overflow-y: auto; /* Allow scrolling INSIDE the modal if content is too tall */
+  position: relative; /* Needed for absolute positioning of close button */
+  box-shadow: 0 5px 15px rgba(224, 223, 223, 0.3);
+  border: 1px solid #ddd;
+  z-index: 1001; /* Ensure content is above overlay background */
+  /* No top/left/transform needed here - flexbox on parent handles centering */
+}
+
+.modalCloseButton {
+  position: absolute; /* Position relative to modalContent */
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #555;
+  z-index: 1002; /* Above modal content */
+}
+
+.modalCloseButton:hover {
+  color: #000; /* Darker on hover */
+}
+
+.modalPre {
+  white-space: pre-wrap; /* Wrap long lines */
+  word-wrap: break-word; /* Break words if needed */
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Monospace font */
+  font-size: 0.9rem;
+  line-height: 1.6;
+  background-color: #f4f4f8; /* Light background for code */
+  padding: 15px; /* Padding inside pre */
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  color: #333; /* Code text color */
+}
+
+
+/* Ensure the existing .button style is suitable or create a new one */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem; /* Adjust padding as needed */
+  background-color: #8B4513;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none; /* Buttons don't need borders usually */
+  cursor: pointer; /* Indicate it's clickable */
+  margin-top: 1rem; /* Add space above the button */
+  font-size: 0.95rem; /* Match text size */
+}
+
+.button:hover {
+  background-color: #693109;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+}
+
