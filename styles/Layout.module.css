@@ -199,3 +199,17 @@
     padding: 1rem 1.5rem 2rem;
   }
 } 
+
+@media (max-width: 768px) {
+  .navigation {
+    flex-wrap: nowrap;            
+    overflow-x: auto;             
+    -webkit-overflow-scrolling: touch; 
+  }
+  .navigation::-webkit-scrollbar { display: none; } 
+
+  .navLink {
+    flex: 0 0 auto;               
+    padding: 0.5rem 0.75rem;      
+  }
+}
