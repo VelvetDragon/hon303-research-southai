@@ -367,6 +367,16 @@
     background-color: #f0e0c9;
 }
 
+.simpleTable,
+.checklistTable {
+  /* let the browser scroll sideways if the table is wider than the phone */
+  display: block;          /* drops the table into its own flow box   */
+  overflow-x: auto;        /* enables horizontal swipe‑scroll         */
+  -webkit-overflow-scrolling: touch; /* smooth iOS momentum scrolling */
+  max-width: 100%;         /* never exceed the viewport               */
+  white-space: nowrap;     /* keep cells on one line inside the scroll*/
+}
+
 .codeSnippet {
   background-color: #f4f4f4;
   border: 1px solid #ddd;
@@ -392,6 +402,49 @@
   color: #c0392b; /* Red color to indicate missing */
   font-weight: bold;
 }
+
+/* ADD (or merge with the .codeSnippet you already have) */
+.codeBlock,                /* the block used in methodology.js        */
+.codeSnippet {             /* the one you already styled              */
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 4px solid #8B4513;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;        /* ← key line: horizontal scroll           */
+  border-radius: 5px;
+  font-size: 0.9rem;
+  max-width: 100%;         /* don’t exceed viewport                   */
+}
+
+.codeBlock pre,
+.codeSnippet pre {
+  margin: 0;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  /* Allow the long line to wrap on *phones only* so users never
+     have to scroll BOTH directions at once                       */
+}
+
+@media (max-width: 768px) {
+  .codeBlock pre,
+  .codeSnippet pre {
+    white-space: pre-wrap;     /* soft‑wrap long lines on small screens */
+    word-break: break-word;
+  }
+}
+/* (example class ‑ adjust to your actual nav wrapper) */
+.mobileNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 320px;
+  overflow-y: auto;          /* scroll if list is long                */
+  z-index: 2000;             /* higher than .modalOverlay (1000)      */
+  background: #fff;
+}
+
 
 .chartContainer {
     position: relative; /* Needed for Chart.js responsiveness */
